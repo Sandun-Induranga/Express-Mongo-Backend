@@ -4,7 +4,9 @@ import PostRoutes from "./PostRoutes";
 
 const router: Router = Router();
 
-router.use("/api/v1/user", new UserRoutes().getRouter());
-router.use("/api/v1/post", new PostRoutes().getRouter());
+const url_prefix = "/api/v1";
+
+router.use(`${url_prefix}/user`, new UserRoutes().getRouter());
+router.use(`${url_prefix}/post`, new PostRoutes().getRouter());
 
 export default router;
