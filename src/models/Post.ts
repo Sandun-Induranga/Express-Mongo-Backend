@@ -9,27 +9,30 @@ interface IPost extends Document {
   tags: string[];
 }
 
-const PostSchema = new Schema({
-  title: {
-    type: String,
-    required: true,
+const PostSchema = new Schema(
+  {
+    title: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
+    hoursCount: {
+      type: Number,
+      required: false,
+    },
+    lecturerName: {
+      type: String,
+      required: false,
+    },
+    tags: {
+      type: Array<String>,
+      required: true,
+    },
   },
-  description: {
-    type: String,
-    required: true,
-  },
-  hoursCount: {
-    type: Number,
-    required: true,
-  },
-  lecturerName:{
-    type: String,
-    required: true,
-  },
-  tags:{
-    type: String[],
-    required: true,
-  },
-},{timestamps:true});
+  { timestamps: true }
+);
 
-export const user = model("Post", PostSchema);
+export const user = model<IPost>("Post", PostSchema);
