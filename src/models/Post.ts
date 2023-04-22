@@ -28,7 +28,7 @@ const PostSchema = new Schema(
       required: false,
     },
     tags: {
-      type: Array<String>,
+      type: Array,
       required: true,
     },
   },
