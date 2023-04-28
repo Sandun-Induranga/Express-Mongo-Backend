@@ -1,7 +1,7 @@
 import express, { Router } from "express";
 import ItemController from "../controllers/ItemController";
 
-export default class PostRoutes {
+export default class ItemRoutes {
   private router: Router = express.Router();
   private itemController: ItemController = new ItemController();
 

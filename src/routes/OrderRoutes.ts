@@ -1,7 +1,7 @@
 import express, { Router } from "express";
 import OrderController from "../controllers/OrderController";
 
-export default class PostRoutes {
+export default class OrderRoutes {
   private router: Router = express.Router();
   private orderController: OrderController = new OrderController();
 
