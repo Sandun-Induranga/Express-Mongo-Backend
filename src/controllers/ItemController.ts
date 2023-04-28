@@ -1,7 +1,7 @@
 import { Request, RequestHandler, Response } from "express";
 
 export default class ItemController {
-  createPost: RequestHandler = async (
+  createItem: RequestHandler = async (
     req: Request,
     res: Response
   ): Promise<Response> => {
