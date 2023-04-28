@@ -1,6 +1,6 @@
 import { Schema, model } from "mongoose";
 
-interface ICustomer extends Document {
+interface IItem extends Document {
   code: string;
   description: string;
   qty: string;
@@ -26,4 +26,4 @@ const ItemSchema = new Schema({
   },
 });
 
-export const item = model("Item", ItemSchema);
+export const item = model<IItem>("Item", ItemSchema);
