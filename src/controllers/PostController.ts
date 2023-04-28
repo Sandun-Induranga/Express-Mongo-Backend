@@ -10,24 +10,21 @@ export default class PostController {
 
   retriveAllPost: RequestHandler = async (
     req: Request,
-    res,
-    Response
+    res: Response
   ): Promise<Response> => {
     return res;
   };
 
   updatePost: RequestHandler = async (
     req: Request,
-    res,
-    Response
+    res: Response
   ): Promise<Response> => {
     return res;
   };
 
   deletePost: RequestHandler = async (
     req: Request,
-    res,
-    Response
+    res: Response
   ): Promise<Response> => {
     return res;
   };

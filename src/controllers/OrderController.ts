@@ -10,24 +10,21 @@ export default class OrderController {
 
   retriveAllOrders: RequestHandler = async (
     req: Request,
-    res,
-    Response
+    res: Response
   ): Promise<Response> => {
     return res;
   };
 
   updateOrder: RequestHandler = async (
     req: Request,
-    res,
-    Response
+    res: Response
   ): Promise<Response> => {
     return res;
   };
 
   deleteOrder: RequestHandler = async (
     req: Request,
-    res,
-    Response
+    res: Response
   ): Promise<Response> => {
     return res;
   };

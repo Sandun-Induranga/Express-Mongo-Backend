@@ -10,24 +10,21 @@ export default class CustomerController {
 
   retriveAllCustomers: RequestHandler = async (
     req: Request,
-    res,
-    Response
+    res: Response
   ): Promise<Response> => {
     return res;
   };
 
   updateCustomer: RequestHandler = async (
     req: Request,
-    res,
-    Response
+    res: Response
   ): Promise<Response> => {
     return res;
   };
 
   deleteCustomer: RequestHandler = async (
     req: Request,
-    res,
-    Response
+    res: Response
   ): Promise<Response> => {
     return res;
   };

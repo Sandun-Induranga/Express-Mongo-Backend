@@ -10,24 +10,21 @@ export default class ItemController {
 
   retriveAllItems: RequestHandler = async (
     req: Request,
-    res,
-    Response
+    res: Response
   ): Promise<Response> => {
     return res;
   };
 
   updateItem: RequestHandler = async (
     req: Request,
-    res,
-    Response
+    res: Response
   ): Promise<Response> => {
     return res;
   };
 
   deleteItem: RequestHandler = async (
     req: Request,
-    res,
-    Response
+    res: Response
   ): Promise<Response> => {
     return res;
   };
