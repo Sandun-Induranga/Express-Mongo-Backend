@@ -1,7 +1,7 @@
 import { Request, RequestHandler, Response } from "express";
 
 export default class OrderController {
-  createPost: RequestHandler = async (
+  createOrder: RequestHandler = async (
     req: Request,
     res: Response
   ): Promise<Response> => {
