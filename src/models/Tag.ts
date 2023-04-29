@@ -1,4 +1,8 @@
-import { Schema } from "mongoose";
+import { Document, Schema, model } from "mongoose";
+
+export interface ICategory extends Document {
+  text: string;
+}
 
 const TagSchema = new Schema(
   {
@@ -9,3 +13,5 @@ const TagSchema = new Schema(
   },
   { timestamps: true }
 );
+
+export const Tag = model("Tag", TagSchema);

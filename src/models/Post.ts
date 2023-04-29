@@ -7,6 +7,7 @@ interface IPost extends Document {
   hoursCount?: number;
   lecturerName?: string;
   tags: string[];
+  categoryId: string;
 }
 
 const PostSchema = new Schema(
@@ -31,8 +32,12 @@ const PostSchema = new Schema(
       type: Array,
       required: true,
     },
+    categoryId: {
+      type: String,
+      required: true,
+    },
   },
   { timestamps: true }
 );
 
-export const user = model<IPost>("Post", PostSchema);
+export const Post = model<IPost>("Post", PostSchema);
