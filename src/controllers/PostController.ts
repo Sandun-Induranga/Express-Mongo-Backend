@@ -57,20 +57,58 @@ export default class PostController {
     req: Request,
     res: Response
   ): Promise<Response> => {
-    return res;
+    try {
+      let posts = await Post.find();
+      return res
+        .status(200)
+        .json({ message: "Successfully Loaded..!", responseData: posts });
+    } catch (error) {
+      if (error instanceof Error)
+        res.status(500).json({ message: error.message });
+
+      return res.status(500).json({ message: "Unknown Error Occured..!" });
+    }
   };
 
   updatePost: RequestHandler = async (
     req: Request,
     res: Response
   ): Promise<Response> => {
-    return res;
+    try {
+      const { id } = req.params;
+      let updatedPost = Post.findByIdAndUpdate(id, req.body);
+      return res
+        .status(200)
+        .json({
+          message: "Successfully Updated..!",
+          responseData: updatedPost,
+        });
+    } catch (error) {
+      if (error instanceof Error)
+        res.status(500).json({ message: error.message });
+
+      return res.status(500).json({ message: "Unknown Error Occured..!" });
+    }
   };
 
   deletePost: RequestHandler = async (
     req: Request,
     res: Response
   ): Promise<Response> => {
-    return res;
+    try {
+      const { id } = req.params;
+      let deletedPost = Post.findByIdAndUpdate(id);
+      return res
+        .status(200)
+        .json({
+          message: "Successfully Updated..!",
+          responseData: deletedPost,
+        });
+    } catch (error) {
+      if (error instanceof Error)
+        res.status(500).json({ message: error.message });
+
+      return res.status(500).json({ message: "Unknown Error Occured..!" });
+    }
   };
 }
