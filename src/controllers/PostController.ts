@@ -38,7 +38,7 @@ export default class PostController {
       await session.commitTransaction();
       session.endSession();
 
-      return res.status(500).json({ message: "unknown error occurred!" });
+      return res.status(200).json({ message: "Successfully Added..!" });
     } catch (error: unknown) {
       if (session != null) {
         try {
@@ -47,7 +47,7 @@ export default class PostController {
           console.log("Error aborting");
         }
       } else {
-        return res.status(500).json({ message: "unknown error occurred!" });
+        return res.status(500).json({ message: "Unknown Error Occurred!" });
       }
     }
     return res;
