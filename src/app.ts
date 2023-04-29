@@ -15,7 +15,7 @@ app.use(urlencoded({ extended: true }));
 app.use("/", routes);
 
 app.use((error: Error, req: Request, res: Response) => {
-  res.status(500).json({ message: "" });
+  res.status(500).json({ message: error.message });
 });
 
 db.connect(process.env.MONGO_DB_URL!)
