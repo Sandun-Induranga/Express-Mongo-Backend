@@ -8,10 +8,19 @@ export default class CustomerController {
   ): Promise<Response> => {
     try {
       let customer = new Customer(req.body);
-      let newCustomer = await customer.save();
+
+      let exists = await Customer.findOne({ name: customer.name });
+
+      if (!exists) {
+        let newCustomer = await customer.save();
+        return res.status(200).json({
+          message: "Successfully Added..!",
+          responseData: newCustomer,
+        });
+      }
       return res
         .status(200)
-        .json({ message: "Successfully Added..!", responseData: newCustomer });
+        .json({ message: "Already Exits..!", responseData: customer });
     } catch (error: unknown) {
       if (error instanceof Error)
         res.status(500).json({ message: error.message });
@@ -41,12 +50,10 @@ export default class CustomerController {
     req: Request,
     res: Response
   ): Promise<Response> => {
+    const { id } = req.params;
     try {
       let customer = new Customer(req.body);
-      let updatedCustomer = await Customer.findByIdAndUpdate(
-        req.body.id,
-        customer
-      );
+      let updatedCustomer = await Customer.findByIdAndUpdate(id, customer);
       return res.status(200).json({
         message: "Successfully Added..!",
         responseData: updatedCustomer,
@@ -64,13 +71,14 @@ export default class CustomerController {
     res: Response
   ): Promise<Response> => {
     try {
-      let isDeleted = await Customer.findOneAndDelete(req.body.id);
+      const { id } = req.params;
 
-      if (!isDeleted) throw new Error("Something Went Wrong..!");
+      let deleted = await Customer.findByIdAndDelete(id);
+      if (!deleted) throw new Error("Something Went Wrong..!");
 
       return res
         .status(200)
-        .json({ message: "Successfully Added..!", responseData: isDeleted });
+        .json({ message: "Successfully Added..!", responseData: true });
     } catch (error: unknown) {
       if (error instanceof Error)
         res.status(500).json({ message: error.message });
