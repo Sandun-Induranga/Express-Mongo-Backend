@@ -22,7 +22,7 @@ db.connect(process.env.MONGO_DB_URL!)
   .then(() => {
     console.log("Database Connected..!");
     app.listen(process.env.PORT, () => {
-      console.log("Server Liestening on Port 5000");
+      console.log(`Server Liestening on Port ${process.env.PORT}`);
     });
   })
   .catch((error) => {

@@ -26,4 +26,4 @@ const CustomerSchema = new Schema({
   },
 });
 
-export const customer = model<ICustomer>("Customer", CustomerSchema);
+export const Customer = model<ICustomer>("Customer", CustomerSchema);
